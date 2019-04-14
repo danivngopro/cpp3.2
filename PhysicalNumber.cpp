@@ -49,7 +49,7 @@ const PhysicalNumber ariel::PhysicalNumber::operator-(const PhysicalNumber& othe
     if ((int(other._unit)/3)!=(int(this->_unit))/3) throw std::runtime_error("different units");
         
         double curr_yahas = yahas[int(other._unit)]/yahas[int(this->_unit)];
-        return PhysicalNumber(other._amount*curr_yahas-this->_amount,this->_unit);
+        return PhysicalNumber(this->_amount-other._amount*curr_yahas,this->_unit);
 }
 
 PhysicalNumber& PhysicalNumber::operator+=(const PhysicalNumber& other){
@@ -64,7 +64,7 @@ PhysicalNumber& PhysicalNumber::operator-=(const PhysicalNumber& other){
     if ((int(other._unit)/3)!=(int(this->_unit))/3) throw std::runtime_error("different units");
         
         double curr_yahas = yahas[int(other._unit)]/yahas[int(this->_unit)];
-        this->_amount = other._amount*curr_yahas-this->_amount;
+        this->_amount = this->_amount-other._amount*curr_yahas;
         return *this;
 }
 
