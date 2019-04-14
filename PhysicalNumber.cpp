@@ -21,19 +21,19 @@ ostream& ariel::operator<<(ostream& os, const PhysicalNumber& num) {
 
     //Input operator, example: istringstream input("700[kg]"); input >> a;
 istream& ariel::operator>> (istream& is, PhysicalNumber& num){
-   std::ios::pos_type startPosition = is.tellg();
-        double temp_value;
-        std::string temp_type;
+   std::ios::pos_type firstset = is.tellg();
+        double x;
+        std::string temp;
 
-        if (!(is>>temp_value))  {
-            auto errorState = is.rdstate(); // remember error state
+        if (!(is>>x))  {
+            auto err = is.rdstate(); // remember error state
             is.clear(); // clear error so seekg will work
-            is.seekg(startPosition); // rewind
-            is.clear(errorState); // set back the error flag
+            is.seekg(firstset); // rewind
+            is.clear(err); // set back the error flag
             return is;
         }
 
-        is >>temp_type;
+        is >>temp;
            int i = 0;
            bool b = false;
            while (i<9) {
@@ -42,18 +42,18 @@ istream& ariel::operator>> (istream& is, PhysicalNumber& num){
                 {
                     auto errorState = is.rdstate(); // remember error state
                     is.clear(); // clear error so seekg will work
-                    is.seekg(startPosition); // rewind
+                    is.seekg(firstset); // rewind
                     is.clear(errorState); // set back the error flag
                     return is;
                 }
-                if(temp_type.compare(type[i])==0)
+                if(temp.compare(type[i])==0)
                 {
                     num._unit=Unit(i);
                     i = 9;
                     b = true;
                 }
             }
-   num._amount = temp_value;
+   num._amount = x;
    return is;
 }
 
