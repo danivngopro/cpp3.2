@@ -78,17 +78,17 @@ const PhysicalNumber ariel::PhysicalNumber::operator-()const {
 }
 
 bool ariel::operator==(const PhysicalNumber& first,const PhysicalNumber& second){
-    if ((int(first._unit)/3)!=(int(second._unit))/3) throw std::runtime_error("the input is not valid");
+    if ((int(first._unit)/3)!=(int(second._unit))/3) throw std::runtime_error("the units dont match (==)");
     return ((first._amount * yahas[int(first._unit)] == (second._amount * yahas[int(second._unit)])));
 }
 
 bool ariel::operator!=(const PhysicalNumber& first,const PhysicalNumber& second) {
-    if ((int(first._unit)/3)!=(int(second._unit))/3) throw std::runtime_error("the input is not valid");
+    if ((int(first._unit)/3)!=(int(second._unit))/3) throw std::runtime_error("the units dont match (!=)");
     return ((first._amount * yahas[int(first._unit)] != (second._amount * yahas[int(second._unit)])));
 }
 
 bool ariel::operator>(const PhysicalNumber& first,const PhysicalNumber& second){
-    if ((int(first._unit)/3)!=(int(second._unit))/3) throw std::runtime_error("the input is not valid");
+    if ((int(first._unit)/3)!=(int(second._unit))/3) throw std::runtime_error("the units dont match (>)");
     double x,y;
     x = first._amount * yahas[int(first._unit)];
     y = second._amount * yahas[int(second._unit)];
@@ -97,7 +97,7 @@ bool ariel::operator>(const PhysicalNumber& first,const PhysicalNumber& second){
 }
 
 bool ariel::operator<(const PhysicalNumber& first,const PhysicalNumber& second){
-    if ((int(first._unit)/3)!=(int(second._unit))/3) throw std::runtime_error("the input is not valid");
+    if ((int(first._unit)/3)!=(int(second._unit))/3) throw std::runtime_error("the units dont match (<)");
     double x,y;
     x = first._amount * yahas[int(first._unit)];
     y = second._amount * yahas[int(second._unit)];
@@ -106,7 +106,7 @@ bool ariel::operator<(const PhysicalNumber& first,const PhysicalNumber& second){
 }
 
 bool ariel::operator>=(const PhysicalNumber& first,const PhysicalNumber& second){
-    if ((int(first._unit)/3)!=(int(second._unit))/3) throw std::runtime_error("the input is not valid");
+    if ((int(first._unit)/3)!=(int(second._unit))/3) throw std::runtime_error("the units dont match (>=)");
     double x,y;
     x = first._amount * yahas[int(first._unit)];
     y = second._amount * yahas[int(second._unit)];
@@ -115,7 +115,7 @@ bool ariel::operator>=(const PhysicalNumber& first,const PhysicalNumber& second)
 }
 
 bool ariel::operator<=(const PhysicalNumber& first,const PhysicalNumber& second){
-    if ((int(first._unit)/3)!=(int(second._unit))/3) throw std::runtime_error("the input is not valid");
+    if ((int(first._unit)/3)!=(int(second._unit))/3) throw std::runtime_error("the units dont match (<=>=)");
     double x,y;
     x = first._amount * yahas[int(first._unit)];
     y = second._amount * yahas[int(second._unit)];
