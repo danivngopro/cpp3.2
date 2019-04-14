@@ -88,6 +88,7 @@ bool ariel::operator!=(const PhysicalNumber& first,const PhysicalNumber& second)
 }
 
 bool ariel::operator>(const PhysicalNumber& first,const PhysicalNumber& second){
+    if ((int(first._unit)/3)!=(int(second._unit))/3) throw std::runtime_error("the input is not valid");
     double x,y;
     x = first._amount * yahas[int(first._unit)];
     y = second._amount * yahas[int(second._unit)];
@@ -96,6 +97,7 @@ bool ariel::operator>(const PhysicalNumber& first,const PhysicalNumber& second){
 }
 
 bool ariel::operator<(const PhysicalNumber& first,const PhysicalNumber& second){
+    if ((int(first._unit)/3)!=(int(second._unit))/3) throw std::runtime_error("the input is not valid");
     double x,y;
     x = first._amount * yahas[int(first._unit)];
     y = second._amount * yahas[int(second._unit)];
@@ -104,6 +106,7 @@ bool ariel::operator<(const PhysicalNumber& first,const PhysicalNumber& second){
 }
 
 bool ariel::operator>=(const PhysicalNumber& first,const PhysicalNumber& second){
+    if ((int(first._unit)/3)!=(int(second._unit))/3) throw std::runtime_error("the input is not valid");
     double x,y;
     x = first._amount * yahas[int(first._unit)];
     y = second._amount * yahas[int(second._unit)];
@@ -112,6 +115,7 @@ bool ariel::operator>=(const PhysicalNumber& first,const PhysicalNumber& second)
 }
 
 bool ariel::operator<=(const PhysicalNumber& first,const PhysicalNumber& second){
+    if ((int(first._unit)/3)!=(int(second._unit))/3) throw std::runtime_error("the input is not valid");
     double x,y;
     x = first._amount * yahas[int(first._unit)];
     y = second._amount * yahas[int(second._unit)];
