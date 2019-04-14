@@ -26,10 +26,10 @@ istream& ariel::operator>> (istream& is, PhysicalNumber& num){
         std::string temp;
 
         if (!(is>>x))  {
-            auto err = is.rdstate(); // remember error state
-            is.clear(); // clear error so seekg will work
-            is.seekg(firstset); // rewind
-            is.clear(err); // set back the error flag
+            auto err = is.rdstate();
+            is.clear(); 
+            is.seekg(firstset); 
+            is.clear(err); 
             return is;
         }
 
@@ -40,10 +40,10 @@ istream& ariel::operator>> (istream& is, PhysicalNumber& num){
                i++;
                if (i==9) 
                 {
-                    auto errorState = is.rdstate(); // remember error state
-                    is.clear(); // clear error so seekg will work
-                    is.seekg(firstset); // rewind
-                    is.clear(errorState); // set back the error flag
+                    auto errorState = is.rdstate();
+                    is.clear(); 
+                    is.seekg(firstset);
+                    is.clear(errorState); 
                     return is;
                 }
                 if(temp.compare(type[i])==0)
