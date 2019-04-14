@@ -78,12 +78,12 @@ const PhysicalNumber ariel::PhysicalNumber::operator-()const {
 }
 
 bool ariel::operator==(const PhysicalNumber& first,const PhysicalNumber& second){
-    if ((int(first._unit)/3)!=(int(second._unit))/3) return false;
+    if ((int(first._unit)/3)!=(int(second._unit))/3) throw std::runtime_error("the input is not valid");
     return ((first._amount * yahas[int(first._unit)] == (second._amount * yahas[int(second._unit)])));
 }
 
 bool ariel::operator!=(const PhysicalNumber& first,const PhysicalNumber& second) {
-    if ((int(first._unit)/3)!=(int(second._unit))/3) return true;
+    if ((int(first._unit)/3)!=(int(second._unit))/3) throw std::runtime_error("the input is not valid");
     return ((first._amount * yahas[int(first._unit)] != (second._amount * yahas[int(second._unit)])));
 }
 
